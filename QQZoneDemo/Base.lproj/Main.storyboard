@@ -55,7 +55,10 @@
                                         </constraints>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="dlN-bc-rjb"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="tw7-1D-SsX" userLabel="密码输入框">
                                         <rect key="frame" x="68" y="63" width="232" height="30"/>
@@ -64,7 +67,10 @@
                                         </constraints>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="BYZ-38-t0r" id="poL-1y-jxJ"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Aw7-fL-djI" userLabel="登录按钮">
                                         <rect key="frame" x="0.0" y="114" width="300" height="43"/>
@@ -77,15 +83,9 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted" backgroundImage="login_button_pressed"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-gz-kvd">
-                                        <rect key="frame" x="150" y="169" width="150" height="22"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title=" 自动登录" image="login_checkbox_normal">
-                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <state key="selected" image="login_checkbox_checked"/>
+                                        <connections>
+                                            <action selector="login" destination="BYZ-38-t0r" eventType="touchUpInside" id="0af-hX-DLS"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-5u-PtR">
                                         <rect key="frame" x="0.0" y="169" width="150" height="22"/>
@@ -98,7 +98,25 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="selected" image="login_checkbox_checked"/>
+                                        <connections>
+                                            <action selector="remPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDa-VI-kTP"/>
+                                        </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y7Z-gz-kvd">
+                                        <rect key="frame" x="150" y="169" width="150" height="22"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title=" 自动登录" image="login_checkbox_normal">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <state key="selected" image="login_checkbox_checked"/>
+                                        <connections>
+                                            <action selector="autoLogin:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mGH-7F-SM8"/>
+                                        </connections>
+                                    </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="GfQ-c0-4ap">
+                                        <rect key="frame" x="270" y="126" width="20" height="20"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -107,6 +125,7 @@
                                     <constraint firstItem="aN9-5u-PtR" firstAttribute="leading" secondItem="bOP-N5-zI5" secondAttribute="leading" id="BbU-aA-Y2F"/>
                                     <constraint firstItem="aN9-5u-PtR" firstAttribute="height" secondItem="Y7Z-gz-kvd" secondAttribute="height" id="Bw5-GA-WyK"/>
                                     <constraint firstItem="Xx4-w1-c6b" firstAttribute="top" secondItem="bOP-N5-zI5" secondAttribute="top" constant="8" id="HSs-oy-a4j"/>
+                                    <constraint firstItem="GfQ-c0-4ap" firstAttribute="leading" secondItem="Aw7-fL-djI" secondAttribute="trailing" constant="-30" id="LdY-xK-F8D"/>
                                     <constraint firstItem="Aw7-fL-djI" firstAttribute="top" secondItem="ebs-qh-DcR" secondAttribute="bottom" constant="12" id="M1C-pm-GE5"/>
                                     <constraint firstItem="ZB1-U5-R0D" firstAttribute="top" secondItem="bOP-N5-zI5" secondAttribute="top" constant="8" id="MTG-H1-Icp"/>
                                     <constraint firstItem="ZB1-U5-R0D" firstAttribute="leading" secondItem="Xx4-w1-c6b" secondAttribute="trailing" id="NVo-TS-kaD"/>
@@ -129,6 +148,7 @@
                                     <constraint firstItem="Xx4-w1-c6b" firstAttribute="height" secondItem="msa-OV-jWU" secondAttribute="height" id="q9Q-Om-LZl"/>
                                     <constraint firstItem="tw7-1D-SsX" firstAttribute="centerY" secondItem="msa-OV-jWU" secondAttribute="centerY" id="qlE-33-CF7"/>
                                     <constraint firstItem="Xx4-w1-c6b" firstAttribute="leading" secondItem="bOP-N5-zI5" secondAttribute="leading" constant="8" id="rVf-ae-5Kd"/>
+                                    <constraint firstItem="Aw7-fL-djI" firstAttribute="centerY" secondItem="GfQ-c0-4ap" secondAttribute="centerY" id="tJf-CI-XBf"/>
                                     <constraint firstItem="msa-OV-jWU" firstAttribute="top" secondItem="Xx4-w1-c6b" secondAttribute="bottom" constant="25" id="yMs-RW-sNK"/>
                                 </constraints>
                             </view>
@@ -141,6 +161,14 @@
                             <constraint firstItem="bOP-N5-zI5" firstAttribute="top" secondItem="0he-IM-Nyb" secondAttribute="bottom" constant="20" id="uR4-3l-MZn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountField" destination="ZB1-U5-R0D" id="r7c-Bo-EC8"/>
+                        <outlet property="activityIndicator" destination="GfQ-c0-4ap" id="59i-ng-j97"/>
+                        <outlet property="autoLogin" destination="Y7Z-gz-kvd" id="e4o-cB-CEI"/>
+                        <outlet property="loginView" destination="bOP-N5-zI5" id="gbt-pH-x6J"/>
+                        <outlet property="passwordField" destination="tw7-1D-SsX" id="3sf-Vq-9gK"/>
+                        <outlet property="remPassword" destination="aN9-5u-PtR" id="9Xb-WP-NvL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -153,6 +181,6 @@
         <image name="login_checkbox_checked" width="20" height="20"/>
         <image name="login_checkbox_normal" width="20" height="20"/>
         <image name="login_default_avatar" width="126" height="126"/>
-        <image name="login_input_bg" width="18" height="102"/>
+        <image name="login_input_bg" width="18" height="68"/>
     </resources>
 </document>
